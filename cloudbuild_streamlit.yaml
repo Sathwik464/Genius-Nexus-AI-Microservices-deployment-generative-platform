@@ -1,0 +1,12 @@
+# cloudbuild_streamlit.yaml (for Streamlit Frontend)
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: [
+    'build',
+    '-t', 'gcr.io/genius-nexus-project/genius-nexus-app',
+    '-f', 'Dockerfile_frontend', # This points to your Frontend Dockerfile
+    '.'
+  ]
+images:
+- 'gcr.io/genius-nexus-project/genius-nexus-app'
+timeout: 600s # 10 minutes, frontend builds are much faster

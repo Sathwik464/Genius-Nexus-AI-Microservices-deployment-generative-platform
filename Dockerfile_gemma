@@ -1,0 +1,12 @@
+FROM python:3.10-slim-bookworm
+
+WORKDIR /app
+
+COPY requirements_gemma.txt .
+RUN pip install --no-cache-dir -r requirements_gemma.txt
+
+COPY gemma_api.py .
+
+EXPOSE 8080
+
+CMD ["uvicorn", "gemma_api:app", "--host", "0.0.0.0", "--port", "8080"]

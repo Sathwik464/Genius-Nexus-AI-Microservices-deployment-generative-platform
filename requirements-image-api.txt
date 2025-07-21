@@ -1,0 +1,8 @@
+diffusers
+transformers
+torch
+accelerate # Often needed for diffusers
+pillow # For PIL Image
+fastapi
+uvicorn
+huggingface_hub

@@ -1,0 +1,12 @@
+# cloudbuild.yaml (for Gemma)
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: [
+    'build',
+    '-t', 'gcr.io/genius-nexus-project/gemma-model-service',
+    '-f', 'Dockerfile_gemma', # This points to your Gemma Dockerfile
+    '.'
+  ]
+images:
+- 'gcr.io/genius-nexus-project/gemma-model-service'
+timeout: 3600s # 1 hour for potential large model downloads/installs

@@ -1,0 +1,12 @@
+# cloudbuild_sd.yaml (for Stable Diffusion)
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: [
+    'build',
+    '-t', 'gcr.io/genius-nexus-project/sd-model-service',
+    '-f', 'Dockerfile-image-api', # This points to your SD Dockerfile
+    '.'
+  ]
+images:
+- 'gcr.io/genius-nexus-project/sd-model-service'
+timeout: 3600s
